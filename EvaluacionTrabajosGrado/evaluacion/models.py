@@ -6,13 +6,16 @@ from proyecto.models import *
 # Create your models here.
 
 class CalificacionProyecto(models.Model):
-    nombre_calificacion_proyecto = models.CharField(max_length=50)
+    id_calificacion_proyecto = models.CharField(max_length=10, primary_key=True, null=False)
+    nombre_calificacion_proyecto = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.nombre_calificacion_proyecto.encode("utf-8")
 
 class EvaluacionProyecto(models.Model):
+    #id_evaluacion_proyecto = models.CharField(max_length=10, primary_key=True, null=False)
     trabajo_grado = models.ForeignKey(TrabajoGrado,  null=False, on_delete=models.CASCADE)
+    listo_para_evaluar = models.BooleanField()
     titulo = models.BooleanField()
     descripcion_problema = models.BooleanField()
     hipotesis = models.BooleanField()
@@ -29,3 +32,7 @@ class EvaluacionProyecto(models.Model):
     pertenece_al_area_formacion_estudiante = models.BooleanField()
     recomendaciones_observaciones_correciones = models.TextField( null=True, blank=True)
     resultado_consolidado = models.ForeignKey(CalificacionProyecto,  null=True, blank=True, related_name="%(class)s_resultado_consolidado", on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return "Evaluacion Proyecto: "+str(self.trabajo_grado).encode("utf-8")

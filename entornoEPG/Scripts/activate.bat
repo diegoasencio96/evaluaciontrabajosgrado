@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=D:\ESPECI~1\BASESD~1\PROYEC~1\EVALUA~2"
+set "VIRTUAL_ENV=D:\ESPECI~1\BASESD~1\PROYEC~1\EVALUA~1\ENTORN~1"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
@@ -9,7 +9,7 @@ if defined _OLD_VIRTUAL_PROMPT (
     )
     set "_OLD_VIRTUAL_PROMPT=%PROMPT%"
 )
-set "PROMPT=(EVALUA~2) %PROMPT%"
+set "PROMPT=(ENTORN~1) %PROMPT%"
 
 REM Don't use () to avoid problems with them in %PATH%
 if defined _OLD_VIRTUAL_PYTHONHOME goto ENDIFVHOME
