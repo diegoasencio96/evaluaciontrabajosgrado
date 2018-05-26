@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django_summernote.admin import SummernoteModelAdmin
 
 from django.contrib import admin
 from evaluacion.models import *
@@ -10,8 +11,11 @@ from evaluacion.models import *
 admin.site.register(CalificacionProyecto)
 
 @admin.register(EvaluacionProyecto)
-class evaluacionAdmin(admin.ModelAdmin):
+class evaluacionAdmin(SummernoteModelAdmin):
+	summernote_fields = ('recomendaciones_observaciones_correciones',)
 	raw_id_fields = ("trabajo_grado",)
 	list_filter = ("resultado_consolidado",)
 	search_fields = ("titulo",)
+
+
 #admin.site.register(EvaluacionProyecto)
