@@ -11,4 +11,6 @@ from evaluacion.models import EvaluacionProyecto
 
 admin.site.register(OpcionDeGrado)
 
-admin.site.register(TrabajoGrado)
+@admin.register(TrabajoGrado)
+class trabajogradoAdmin(admin.ModelAdmin):
+	raw_id_fields = ("estudiante1","estudiante2","director","codirector")

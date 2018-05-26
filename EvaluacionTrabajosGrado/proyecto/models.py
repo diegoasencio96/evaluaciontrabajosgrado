@@ -38,4 +38,14 @@ class TrabajoGrado(models.Model):
         '''
     	return super(TrabajoGrado, self).save( *args, **kwargs)  # llamada al save() original con sus parámetros correspondientes
 
-    
+
+from evaluacion.models import EvaluacionProyecto
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+@receiver(post_save, sender=TrabajoGrado)
+def socket(sender,instance,created,**kwargs):
+    evaluacion = EvaluacionProyecto.objects.get_or_create(
+        trabajo_grado = instance,
+        
+        )

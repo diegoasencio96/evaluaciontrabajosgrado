@@ -9,4 +9,9 @@ from evaluacion.models import *
 
 admin.site.register(CalificacionProyecto)
 
-admin.site.register(EvaluacionProyecto)
+@admin.register(EvaluacionProyecto)
+class evaluacionAdmin(admin.ModelAdmin):
+	raw_id_fields = ("trabajo_grado",)
+	list_filter = ("resultado_consolidado",)
+	search_fields = ("titulo",)
+#admin.site.register(EvaluacionProyecto)
