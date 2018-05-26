@@ -17,5 +17,10 @@ class evaluacionAdmin(SummernoteModelAdmin):
 	list_filter = ("resultado_consolidado",)
 	search_fields = ("titulo",)
 
+	def get_queryset(self, request):
+		qs = super(evaluacionAdmin, self).get_queryset(request)
+		if request.user.is_superuser:
+		    return qs
+		return qs.filter(trabajo_grado__jurado1=request.user)
 
 #admin.site.register(EvaluacionProyecto)
