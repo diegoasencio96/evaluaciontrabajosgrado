@@ -1,2 +1,3 @@
 django==1.11.11
 django-suit
+cx_Oracle

@@ -8,13 +8,7 @@ from models import *
 from evaluacion.models import EvaluacionProyecto
 # Register your models here.
 
-class EvaluacionInline(admin.TabularInline):
-    model = EvaluacionProyecto
-    extra = 1
-
-class TrabajoGradoAdmin(admin.ModelAdmin):
-    inlines = [EvaluacionInline]
 
 admin.site.register(OpcionDeGrado)
 
-admin.site.register(TrabajoGrado, TrabajoGradoAdmin)
+admin.site.register(TrabajoGrado)

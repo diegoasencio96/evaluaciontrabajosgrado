@@ -2,7 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from universidad.models import *
+from universidad.models import Programa, User, Estudiante
+from evaluacion.models import EvaluacionProyecto
 # Create your models here.
 
 
@@ -26,6 +27,15 @@ class TrabajoGrado(models.Model):
     codirector = models.ForeignKey(User, null=True, blank=True, related_name="%(class)s_codirector", on_delete=models.CASCADE)
     jurado1 = models.ForeignKey(User, null=False, related_name="%(class)s_jurado1", on_delete=models.CASCADE)
     jurado2 = models.ForeignKey(User, null=True, blank=True, related_name="%(class)s_jurado2", on_delete=models.CASCADE)
-
+    
     def __str__(self):
         return self.nombre_trabajo_de_grado.encode("utf-8")
+
+    def save(self, *args, **kwargs):
+        '''
+        evaluacion = User.objects.create(trabajo_grado=self.id)
+        evaluacion.save()
+        '''
+    	return super(TrabajoGrado, self).save( *args, **kwargs)  # llamada al save() original con sus parámetros correspondientes
+
+    

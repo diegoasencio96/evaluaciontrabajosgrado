@@ -11,8 +11,8 @@ class Programa(models.Model):
     programa = models.CharField(max_length=10, primary_key=True, null=False)
     nombre_del_programa = models.CharField(max_length=50, unique=True, null=False)
 
-    def __str__(self):
-        return self.nombre_del_programa.encode("utf-8")
+    def __unicode__(self):
+        return unicode(self.nombre_del_programa)
 
 
 class User(AbstractUser):

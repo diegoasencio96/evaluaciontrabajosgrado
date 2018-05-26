@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from proyecto.models import *
+from proyecto.models import TrabajoGrado
 # Create your models here.
 
 class CalificacionProyecto(models.Model):
@@ -33,6 +33,6 @@ class EvaluacionProyecto(models.Model):
     recomendaciones_observaciones_correciones = models.TextField( null=True, blank=True)
     resultado_consolidado = models.ForeignKey(CalificacionProyecto,  null=True, blank=True, related_name="%(class)s_resultado_consolidado", on_delete=models.CASCADE)
 
-
+    
     def __str__(self):
         return "Evaluacion Proyecto: "+str(self.trabajo_grado).encode("utf-8")

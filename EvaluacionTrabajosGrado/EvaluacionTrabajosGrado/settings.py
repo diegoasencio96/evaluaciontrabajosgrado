@@ -40,6 +40,8 @@ SUIT_CONFIG = {
 # Application definition
 
 INSTALLED_APPS = [
+    #'material',
+    #'material.frontend',
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -92,8 +94,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
+'''
+DATABASES = {
+    'default': {
+    'ENGINE':   'django.db.backends.oracle',
+    'NAME':     'xe',
+    'USER':     'proyectodbeis',
+    'PASSWORD': 'proyectodbeis',
+  }
+}
+'''
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 '''
