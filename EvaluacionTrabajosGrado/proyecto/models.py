@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from universidad.models import Programa, User, Estudiante
-from evaluacion.models import EvaluacionProyecto
+#from evaluacion.models import EvaluacionProyecto
 # Create your models here.
 
 
